@@ -44,8 +44,8 @@ public class ResStyleValue extends ResBagValue implements GetResValues {
 	public void getResValues(ARSCCallBack back, ResResource res) throws IOException {
 		for (int i = 0; i < mItems.length; i++) {
 			Duo<ResReferenceValue, ResScalarValue> item = mItems[i];
-			back.back(res.getConfig().toString(), res.getResSpec().getType().getName(), res.getResSpec().getName(),
-					item.m2.encodeResValue());
+			back.back(res, res.getConfig().toString(), res.getResSpec().getType().getName(),
+					res.getResSpec().getName(), item.m2.encodeResValue());
 		}
 	}
 }

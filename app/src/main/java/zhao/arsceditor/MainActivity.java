@@ -57,7 +57,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import zhao.arsceditor.ResDecoder.ARSCCallBack;
+import zhao.arsceditor.ResDecoder.data.ResResource;
 import zhao.arsceditor.ResDecoder.data.ResTable;
+import zhao.arsceditor.ResDecoder.data.value.ResReferenceValue;
+import zhao.arsceditor.ResDecoder.data.value.ResStringValue;
+import zhao.arsceditor.ResDecoder.data.value.ResValue;
 import zhao.arsceditor.Translate.DoTranslate;
 
 @SuppressWarnings("deprecation")
@@ -476,9 +480,22 @@ public class MainActivity extends Activity implements OnItemLongClickListener {
 				int i = 0;
 
 				@Override
-				public void back(String config, String type, String key, String value) {
+				public boolean filter(ResResource res) {
+					ResValue val = res.getValue();
+					if (val instanceof ResStringValue || val instanceof ResReferenceValue) {
+						String type = res.getResSpec().getType().getName();
+						if (type != null && type.equals("drawable")) {
+							return true;
+						}
+					}
+					return false;
+				}
+
+				@Override
+				public void back(ResResource res, String config, String type, String key, String value) {
 					// 这里是为了出去一些不能编辑的字符串
-					if (type != null) {
+					if (value.startsWith("R/") && !value.endsWith(".xml")) {
+
 						// 初始化键值映射
 						values = new ContentValues();
 						// 向映射中添加资源的键
@@ -538,6 +555,7 @@ public class MainActivity extends Activity implements OnItemLongClickListener {
 		// 耗时任务执行完毕后的事件处理
 		@Override
 		protected void onPostExecute(String result) {
+			Log.e("MainActivity", "resources count: " + RESOURCES.size());
 			// 隐藏进度条
 			dlg.dismiss();
 			// 如果返回的结果不是成功

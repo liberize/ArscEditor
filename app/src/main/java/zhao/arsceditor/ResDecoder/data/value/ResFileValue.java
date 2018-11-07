@@ -39,13 +39,13 @@ public class ResFileValue extends ResIntBasedValue implements GetResValues {
 
 	@Override
 	public void getResValues(ARSCCallBack back, ResResource res) throws IOException {
-		back.back(res.getConfig().toString(), res.getResSpec().getType().getName(), res.getResSpec().getName(),
-				getStrippedPath());
+		back.back(res, res.getConfig().toString(), res.getResSpec().getType().getName(),
+				res.getResSpec().getName(), getStrippedPath());
 	}
 
 	public String getStrippedPath() throws IOException {
-		if (!mPath.startsWith("res/")) {
-			throw new IOException("File path does not start with \"res/\": " + mPath);
+		if (!mPath.startsWith("res/") && !mPath.startsWith("r/") && !mPath.startsWith("R/")) {
+			throw new IOException("File path does not start with \"res/\" or \"r/\": " + mPath);
 		}
 		return mPath;/* .substring(4); */
 	}

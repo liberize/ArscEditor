@@ -28,7 +28,7 @@ import zhao.arsceditor.ResDecoder.data.ResResource;
 public class ResIdValue extends ResValue implements GetResValues {
 	@Override
 	public void getResValues(ARSCCallBack back, ResResource res) throws IOException {
-		back.back(res.getConfig().toString(), res.getResSpec().getType().getName(), res.getResSpec().getName(),
-				res.getValue().toString());
+		back.back(res, res.getConfig().toString(), res.getResSpec().getType().getName(),
+				res.getResSpec().getName(), res.getValue().toString());
 	}
 }

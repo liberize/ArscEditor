@@ -87,7 +87,9 @@ final public class AndrolibResources {
 			if (valuesFile.isSynthesized(res)) {
 				continue;
 			}
-			((GetResValues) res.getValue()).getResValues(callback, res);
+			if (callback.filter(res)) {
+				((GetResValues) res.getValue()).getResValues(callback, res);
+			}
 		}
 	}
 

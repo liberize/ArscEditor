@@ -51,9 +51,8 @@ public abstract class ResScalarValue extends ResIntBasedValue implements GetResV
 	@Override
 	public void getResValues(ARSCCallBack back, ResResource res) throws IOException {
 		String type = res.getResSpec().getType().getName();
-
 		String body = encodeAsResValue();
-		back.back(res.getConfig().toString(), type, res.getResSpec().getName(), body);
+		back.back(res, res.getConfig().toString(), type, res.getResSpec().getName(), body);
 	}
 
 	public String getType() {

@@ -54,7 +54,8 @@ public class ResArrayValue extends ResBagValue implements GetResValues {
 		type = (type == null ? "" : type + "-") + "array";
 		// add <item>'s
 		for (int i = 0; i < mItems.length; i++) {
-			back.back(res.getConfig().toString(), type, res.getResSpec().getName(), mItems[i].encodeAsResValue());
+			back.back(res, res.getConfig().toString(), type, res.getResSpec().getName(),
+					mItems[i].encodeAsResValue());
 		}
 	}
 

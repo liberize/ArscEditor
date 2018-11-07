@@ -148,8 +148,8 @@ public class ResFlagsAttr extends ResAttr {
 	protected void serializeBody(ARSCCallBack back, ResResource res) throws IOException, IOException {
 		for (int i = 0; i < mItems.length; i++) {
 			FlagItem item = mItems[i];
-			back.back(res.getConfig().toString(), res.getResSpec().getType().getName(), item.getValue(),
-					String.format("0x%08x", item.flag));
+			back.back(res, res.getConfig().toString(), res.getResSpec().getType().getName(),
+					item.getValue(), String.format("0x%08x", item.flag));
 		}
 	}
 }

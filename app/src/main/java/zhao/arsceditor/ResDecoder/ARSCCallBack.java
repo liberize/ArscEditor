@@ -18,6 +18,9 @@
  */
 package zhao.arsceditor.ResDecoder;
 
+import zhao.arsceditor.ResDecoder.data.ResResource;
+
 public interface ARSCCallBack {
-	void back(String config, String type, String key, String value);
+	boolean filter(ResResource res);
+	void back(ResResource res, String config, String type, String key, String value);
 }
