@@ -8,19 +8,7 @@ Now it's opened to public.I hope the friends around the world could make contrib
 
 It is NOT intended for piracy and other non-legal uses. It could be used for localizing, adding some features or support for custom platforms and other GOOD purposes. Just try to be fair with authors of an app, that you use and probably like.
 
-
-#### IDE of Choice
-
-[![Eclipse](https://avatars1.githubusercontent.com/u/56974?v=4)](http://www.eclipse.org/)
-
-#### Vulnerabilities
-
-If you discover a vulnerability within ArscEditor, please send an e-mail to ZhaoHai at 2801045898@qq.com.
-
 #### Links
-- [ApkTools](https://github.com/iBotPeaches/Apktool)
 
-### Arsc编辑器
-这是一个用于编辑安卓Arsc文件的工具,使用Java语言编写，你可以用它编辑字符串和包名等等。
-
-现将其开放，希望世界各地的朋友们一起努力为开源贡献。
+- Forked from [ArscEditor](https://github.com/seaase/ArscEditor)
+- Based on [ApkTools](https://github.com/iBotPeaches/Apktool)
